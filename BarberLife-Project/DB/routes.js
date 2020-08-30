@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mysql = require('mysql'); 
+const mysql = require('mysql');
 const url = require('url');
 const bcrypt = require('react-native-bcrypt');
 const salt = bcrypt.genSaltSync(10);
@@ -14,7 +14,7 @@ const connection = mysql.createConnection(
 {
     host:'localhost',
     user:'root',
-    password:'',
+    password:'root',
     database:'BarberLife'
 });
 
@@ -43,23 +43,23 @@ app.post('/connexion',function(req,res){
             // si le mot de passe saisi correspond au mot de passe crypté en base
             if(bcrypt.compareSync(password,rows[0].password_user))
             {
-            
+
                 console.log('existe');
                 return res.send({sucess:1,IdUser:rows[0].id_user, data:rows[0]});
             }
             else
             {
                 console.log("existe pas");
-                return res.send({sucess:2});  
+                return res.send({sucess:2});
             }
-            
+
           });
           console.log(username + " " + password);
     }
     else{
         res.send({sucess:3});
     }
-    
+
 });
 
 //récupération de toutes les données d'un utilisateur par rapport à son id
@@ -69,9 +69,9 @@ app.post('/home',function(req,res)
     console.log(idUser);
     connection.query("select * from utilisateur_user where id_user = ?",[idUser],function(error,rows,fields)
     {
-        return res.send(rows); 
+        return res.send(rows);
     })
-   
+
 });
 
 //insertion d'un nouvel utilisateur
@@ -90,12 +90,12 @@ app.post('/inscription', function(req,res)
     var verifMdp = req.body.verifMdp;
     var typeProfil = req.body.typeProfil;
     var idToken = 1;
-    
+
     console.log(mail,nom,prenom,dateNaiss,numRue,nomRue,cp,ville,tel,mdp,verifMdp,typeProfil);
 
     if(mail && nom && prenom && dateNaiss && numRue && nomRue && cp && ville && tel && mdp && verifMdp)
     {
-        
+
         // Mettre l'adresse complète dans une variable
         if(mdp == verifMdp)
         {
@@ -105,13 +105,13 @@ app.post('/inscription', function(req,res)
             {
                 res.send({sucess:1});
                 console.log('inscription');
-            });  
+            });
         }
         else
         {
             console.log('mot de passe différent dans les deux champs');
             res.send({sucess:2});
-        }             
+        }
     }
     else
     {
@@ -137,7 +137,7 @@ app.post('/profil', function(req,res)
     var verifMdp = req.body.verifMdp;
     var typeProfil = req.body.typeProfil;
     var idToken = 1;
-    
+
     console.log(mail,nom,prenom,dateNaiss,numRue,nomRue,cp,ville,tel,mdp,verifMdp,typeProfil);
 
     if(mail || nom || prenom || dateNaiss || numRue || nomRue || cp || ville || tel || mdp || verifMdp)
@@ -172,16 +172,16 @@ app.post('/profil', function(req,res)
             var hash = bcrypt.hashSync(mdp, salt);
             set += " password_user = "+hash
         }
-        
+
         // on enlève la dernière virgule
-        set = set.substring(0, set.length - 1); 
+        set = set.substring(0, set.length - 1);
 
         connection.query("UPDATE"+set+" WHERE id_user=?",[id],function(error,rows,fields)
         {
             res.send({sucess:1});
             console.log('inscription');
-        });  
-                    
+        });
+
     }
     else
     {
@@ -196,7 +196,7 @@ app.post('/searchBarber',function(req, res)
     var typeProfil = 0;
     connection.query("select * from utilisateur_user where typeProfil_user = ?",[typeProfil],function(error,rows,fields)
     {
-       
+
         if(rows.length > 0)
         {
             console.log('coiffeurs trouvés');
@@ -205,8 +205,8 @@ app.post('/searchBarber',function(req, res)
         {
             console.log("aucuns coiffeurs");
         }
-        return res.send(rows);  
-    })   
+        return res.send(rows);
+    })
 });
 
 //Prise de rendez-vous
@@ -235,8 +235,8 @@ app.post('/rdv',function(req, res)
             res.send({sucess:2});
             console.log("échec! " + idCoiffeur)
         }
-        
-       
+
+
     });
 
 
