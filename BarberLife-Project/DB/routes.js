@@ -15,11 +15,12 @@ const connection = mysql.createConnection(
     host:'localhost',
     user:'root',
     password:'root',
+    port: 8889,
     database:'BarberLife'
 });
 
-//on écoute le port 4545
-var server = app.listen(4545,function()
+//on écoute le port 4646
+var server = app.listen(4646,function()
 {
     var host = server.address().address
     var port = server.address().port

@@ -7,30 +7,27 @@ import { ImageBackground, StyleSheet, View } from 'react-native';
 import { Avatar, Button, Card, Divider, Header } from 'react-native-elements';
 
 //Imports des classes personnalisées
-import FooterCustom from './footer';
-import SearchBarCustom from './searchbar';
-import CoiffeurItems from './coiffeurItems'
+import FooterCustom from '../Component/footer';
+import CoiffeurItems from '../Component/coiffeurItems'
 
 /**
- * Import pour la localisation 
+ * Import pour la localisation
  * source: https://docs.expo.io/versions/v37.0.0/sdk/location/
  */
 import * as Location from 'expo-location';
 
-//costantes utiles
-const image = { uri: "https://images.hdqwalls.com/download/apple-pro-display-xdr-5k-jh-1920x1080.jpg" };
 
 // Vue afficher pour la page de commande
 export default class Commande extends React.Component
 {
-  
+
     //Constructeur
     constructor(props)
     {
         super(props)
         this.inputId = ""
         this.inputMdp = ""
-        this.state = 
+        this.state =
         {
             coiffeurs: "",
             title:"OFF",
@@ -48,10 +45,10 @@ export default class Commande extends React.Component
 
     useEffect()
     {
-      (async () => 
+      (async () =>
       {
         let { status } = await Location.requestPermissionsAsync();
-        if (status !== 'granted') 
+        if (status !== 'granted')
         {
           setErrorMsg('Permission to access location was denied');
         }
@@ -102,16 +99,16 @@ export default class Commande extends React.Component
     //fonctions BDD
     getInputId(text)
     {
-        this.inputId = text      
+        this.inputId = text
     }
     getInputMdp(text)
     {
-        this.inputMdp = text  
+        this.inputMdp = text
     }
 
     getConnexion()
     {
-        this.fetchConnexion(); 
+        this.fetchConnexion();
         this.goToHome();
     }
 
@@ -165,7 +162,7 @@ export default class Commande extends React.Component
             this.goToHome();
         }
         return(
-          <ImageBackground source={image} style={styles.image}>
+            <View>
             <Header
                 //utilisation du header a la place de headercustom de component/header.js car on ne peut pas ouvrir le menu sinon (a patcher)
                 leftComponent={
@@ -194,18 +191,17 @@ export default class Commande extends React.Component
                 }}
             />
             <Divider style={{ backgroundColor: 'white' }} />
-            <SearchBarCustom />
 
             <View style={styles.container}>
                 <Card
                     title='COMMANDE'
-                    image={require('../Images/BarberLife-logo-Orange.png')}
+                    image={require('../assets/images/BarberLife-logo-Orange.png')}
                     containerStyle={{ borderRadius: '25px', opacity: 0.98, height: '95%' }}
                 >
 
                 <View>
                 {
-                    //probleme: doit afficher la liste après clic sur le bouton mais bug si on utilise le state 
+                    //probleme: doit afficher la liste après clic sur le bouton mais bug si on utilise le state
                    /* list.map((l, i) => (
                     <ListItem
                         key={l.id_user}
@@ -239,14 +235,14 @@ export default class Commande extends React.Component
                     />
                 </View>
 
-        
+
                 </Card>
             </View>
             <FooterCustom/>
-        </ImageBackground>
+                            </View>
         )
     }
-    
+
 }
 
 
@@ -254,7 +250,7 @@ const styles = StyleSheet.create(
 {
     center:
     {
-        
+
     },
     horizontalCenter:
     {

@@ -4,11 +4,7 @@ import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { Avatar, Button, Card, Divider, Header } from 'react-native-elements';
 
 //Imports des classes personnalisées
-import FooterCustom from './footer';
-import SearchBarCustom from './searchbar';
-
-//constantes utiles
-const image = { uri: "https://images.hdqwalls.com/download/apple-pro-display-xdr-5k-jh-1920x1080.jpg" };
+import FooterCustom from '../Component/footer';
 
 // Vue afficher pour la page de connexion
 export default class Home extends React.Component
@@ -21,14 +17,14 @@ export default class Home extends React.Component
         this.inputId = ""
         this.inputMdp = ""
 
-        this.state = 
+        this.state =
         {
             lieu: "en cours de localisation...",
             title: "OFF",
             avatarColor: "red",
             IdUser: "",
             data: []
-        }    
+        }
     }
 
     /**
@@ -45,7 +41,7 @@ export default class Home extends React.Component
       {
         this.props.navigation.navigate("Commande", {
           screen: 'Commande',
-          params: { 
+          params: {
             IdUser: this.state.IdUser,
             data: this.state.data
           }
@@ -66,7 +62,7 @@ export default class Home extends React.Component
     {
       if(this.state.IdUser!="")
       {
-        this.props.navigation.navigate("Profil", 
+        this.props.navigation.navigate("Profil",
         {
           IdUser: this.state.IdUser,
           data: this.state.data
@@ -87,17 +83,14 @@ export default class Home extends React.Component
     {
       if((typeof this.props.route.params === 'undefined' || this.state.IdUser == "" || typeof this.state.IdUser === "undefined"))
       {
-        return(
+        return (
           <View>
-            <Text>
-              Bienvenue sur BarberLife !
-            </Text>
+            <Text>Bienvenue sur BarberLife !</Text>
 
             <Button
               onPress={() => this.goToConnexion()}
               title={` Connectez-vous`}
-              icon=
-              {
+              icon={
                 <Icon
                     name="arrow-right"
                     size={15}
@@ -107,7 +100,7 @@ export default class Home extends React.Component
             />
           </View>
         )
-      } 
+      }
       else
       {
         return(
@@ -147,11 +140,10 @@ export default class Home extends React.Component
             avatarColor: "green"
           })
         }
-        
-      return(
-        <ImageBackground source={image} style={styles.image}>
+
+      return (
+          <View>
           <Header
-              
               leftComponent=
               {
                 <Icon
@@ -165,12 +157,12 @@ export default class Home extends React.Component
 
               centerComponent=
               {
-                { 
-                  text: 'BARBERLIFE', 
-                  style: { color: '#fff', fontWeight: 'bold' } 
+                {
+                  text: 'BARBERLIFE',
+                  style: { color: '#fff', fontWeight: 'bold' }
                 }
               }
-              
+
               rightComponent=
               {
                   <Avatar
@@ -181,7 +173,7 @@ export default class Home extends React.Component
                       onPress={() => this.goToProfil()}
                   />
               }
-              
+
               containerStyle=
               {
                 {
@@ -193,7 +185,6 @@ export default class Home extends React.Component
 
           <Divider style={{ backgroundColor: 'white' }} />
 
-          <SearchBarCustom />
 
           <View style={styles.container}>
 
@@ -201,14 +192,14 @@ export default class Home extends React.Component
                 title="ACCUEIL"
                 image=
                 {
-                  require('../Images/BarberLife-logo-Brown.png')
+                  require('../assets/images/BarberLife-logo-Brown.png')
                 }
                 containerStyle=
                 {
-                  { 
-                    borderRadius: '25px', 
-                    opacity: 0.98, 
-                    height: '95%' 
+                  {
+                    borderRadius: '25px',
+                    opacity: 0.98,
+                    height: '95%'
                   }
                 }
             >
@@ -220,8 +211,7 @@ export default class Home extends React.Component
           </View>
 
           <FooterCustom/>
-
-      </ImageBackground>
+        </View>
       )
     }
 }

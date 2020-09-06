@@ -3,27 +3,25 @@ import React, { useState } from 'react'
 // Imports utiles de divers librairies
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input,} from 'react-native-elements';
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Avatar, Button, Card, Divider, Header } from 'react-native-elements';
 
 // Imports des objets personnalisés
-import FooterCustom from './footer';
-import SearchBarCustom from './searchbar';
+import FooterCustom from '../Component/footer';
 
-// constantes utiles 
-const image = { uri: "https://images.hdqwalls.com/download/apple-pro-display-xdr-5k-jh-1920x1080.jpg" };
+// constantes utiles
 
 // Vue afficher pour la page de connexion
 export default class Connexion extends React.Component
 {
-  
+
     //Constructeur
     constructor(props)
     {
         super(props)
         this.inputId = ""
         this.inputMdp = ""
-        this.state = 
+        this.state =
         {
           title:"OFF",
           avatarColor: "red",
@@ -40,10 +38,22 @@ export default class Connexion extends React.Component
 
     goToHome()
     {
-      this.props.navigation.navigate("Accueil", {
+      /*this.props.navigation.navigate("Accueil", {
         IdUser: this.state.IdUser,
         data: this.state.data
       });
+       */
+      if(true){
+          this.props.navigation.navigate("BarberTabNavigator", {
+              IdUser: this.state.IdUser,
+              data: this.state.data
+          })
+      }else {
+          this.props.navigation.navigate("ClientTabNavigator", {
+              IdUser: this.state.IdUser,
+              data: this.state.data
+          })
+      }
     }
 
     goToProfil()
@@ -68,25 +78,25 @@ export default class Connexion extends React.Component
     }
 
     /**
-     * RECUPERATION CHAMPS FORMULAIRE 
+     * RECUPERATION CHAMPS FORMULAIRE
      */
     getInputId(text)
     {
-        this.inputId = text      
+        this.inputId = text
     }
     getInputMdp(text)
     {
-        this.inputMdp = text  
+        this.inputMdp = text
     }
 
     /**
      * FONCTION BDD
      */
-    
+
     fetchConnexion =   async()=>
     {
         //192.169.0.xx => xx correspond au numéro machine de l'IP sur laquelle se lance EXPO
-        const response = await fetch('http://192.168.0.32:4545/connexion',
+        const response = await fetch('http://192.168.1.32:4646/connexion',
           {
             method:'POST',
             headers:{
@@ -113,17 +123,17 @@ export default class Connexion extends React.Component
               alert("Veuillez remplir tous les champs");
               break;
         }
-    } 
-    
+    }
+
     getConnexion()
     {
-        this.fetchConnexion(); 
+        this.fetchConnexion();
     }
 
     render()
     {
-        return(
-            <ImageBackground source={image} style={styles.image}>
+        return (
+            <View>
             <Header
               //utilisation du header a la place de headercustom de component/header.js car on ne peut pas ouvrir le menu sinon (a patcher)
               leftComponent={
@@ -151,13 +161,12 @@ export default class Connexion extends React.Component
               justifyContent: 'space-around',
               }}
             />
-            <Divider style={{ backgroundColor: 'white' }} />
-            <SearchBarCustom />
+            <Divider style={{ backgroundColor: 'white' }} ></Divider>
 
         <View style={styles.container}>
             <Card
             title='CONNEXION'
-            image={require('../Images/BarberLife-logo-Orange.png')}
+            image={require('../assets/images/BarberLife-logo-Orange.png')}
             containerStyle={{ borderRadius: '25px', opacity: 0.98, height: '95%' }}
           >
             <View>
@@ -177,7 +186,7 @@ export default class Connexion extends React.Component
               errorStyle={{ color: 'red', fontWeight: 'bold' }}
               onChangeText={(text) => this.getInputId(text)}
             />
-    
+
             <Input
               label='Mot de passe'
               labelStyle={{ fontWeight: 'bold', fontStyle: 'italic' }}
@@ -196,7 +205,7 @@ export default class Connexion extends React.Component
               onChangeText={(text) => this.getInputMdp(text)}
             />
             </View>
-    
+
             <View style={styles.space}>
             <Text
               style={styles.center}
@@ -207,7 +216,7 @@ export default class Connexion extends React.Component
               onPress={() => this.goToInscription()}
               > Inscrivez-vous </Text>
             </View>
-    
+
             <View>
             <Button
               buttonStyle={{bottom: 0}}
@@ -225,11 +234,11 @@ export default class Connexion extends React.Component
               type='solid'
             />
             </View>
-    
+
           </Card>
           </View>
           <FooterCustom/>
-      </ImageBackground>
+                  </View>
         )
     }
 }

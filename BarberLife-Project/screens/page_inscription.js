@@ -6,15 +6,13 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Avatar, Button, ButtonGroup, Card, CheckBox, Divider, Header, Input } from 'react-native-elements';
 
 // Imports classes personnalisées
-import FooterCustom from './footer';
-import SearchBarCustom from './searchbar';
+import FooterCustom from '../Component/footer';
 
-const image = { uri: "https://images.hdqwalls.com/download/apple-pro-display-xdr-5k-jh-1920x1080.jpg" };
 
 // Vue afficher pour la page d'inscription
 class Inscription extends React.Component
 {
-  
+
     //Constructeur
     constructor(props){
         super(props)
@@ -29,8 +27,8 @@ class Inscription extends React.Component
         this.inputTel = ""
         this.inputMdp = ""
         this.inputVerifMdp = ""
-       
-        this.state = 
+
+        this.state =
         {
             title: "OFF",
             avatarColor: "red",
@@ -76,60 +74,60 @@ class Inscription extends React.Component
     }
 
     /**
-     * RECUPERATION CHAMPS FORMULAIRE 
+     * RECUPERATION CHAMPS FORMULAIRE
      */
 
     getInputUsername(text)
     {
-        this.inputUsername = text      
+        this.inputUsername = text
     }
     getInputNom(text)
     {
-        this.inputNom = text  
+        this.inputNom = text
     }
     getInputPrenom(text)
     {
-        this.inputPrenom = text  
+        this.inputPrenom = text
     }
     getInputDateNaiss(text)
     {
-        this.inputDateNaiss = text  
+        this.inputDateNaiss = text
     }
     getInputNumRue(text)
     {
-        this.inputNumRue = text  
+        this.inputNumRue = text
     }
     getInputNomRue(text)
     {
-        this.inputNomRue = text  
+        this.inputNomRue = text
     }
     getInputCP(text)
     {
-        this.inputCP = text  
+        this.inputCP = text
     }
     getInputVille(text)
     {
-        this.inputVille = text  
+        this.inputVille = text
     }
     getInputTel (text)
     {
         this.inputTel = text
-    }    
+    }
     getInputMdp(text)
     {
-        this.inputMdp = text  
+        this.inputMdp = text
     }
     getInputVerifMdp(text){
-        this.inputVerifMdp = text  
+        this.inputVerifMdp = text
     }
-    
+
     /**
      * FONCTION BDD
      */
 
-    fetchInscription =   async() =>
+    fetchInscription =  async() =>
     {
-        const response = await fetch('http://192.168.0.32:4545/inscription',{
+        const response = await fetch('http://192.168.1.32:4646/inscription',{
             method:'POST',
             headers:
             {
@@ -164,10 +162,10 @@ class Inscription extends React.Component
             case 3:
                 alert("Veuillez remplir tous les champs!");
             break;
-            
- 
+
+
         }
-    } 
+    }
 
     getInscription()
     {
@@ -188,7 +186,7 @@ class Inscription extends React.Component
             {
                 this.setState({client: false});
                 this.setState({typeUser: -1});
-            } 
+            }
             //sinon on le coche et on met typeUser à 1
             else
             {
@@ -215,7 +213,7 @@ class Inscription extends React.Component
             {
                 this.setState({coiffeur: false});
                 this.setState({typeUser: -1});
-            } 
+            }
             //sinon on le coche et on met typeUser à 0
             else
             {
@@ -236,7 +234,7 @@ class Inscription extends React.Component
         ButtonGroup:
         https://react-native-elements.github.io/react-native-elements/docs/button_group.html
     */
-    component1 = () => 
+    component1 = () =>
     <CheckBox
         center
         title='Client'
@@ -245,7 +243,7 @@ class Inscription extends React.Component
         checked={this.state.client}
         onPress={() => this.setClient()}
     />
-    component2 = () => 
+    component2 = () =>
     <CheckBox
         center
         title='Coiffeur'
@@ -257,10 +255,9 @@ class Inscription extends React.Component
 
     checkbox = [{ element: this.component1 }, { element: this.component2 }]
 
-    render()
-    {
-        return(
-          <ImageBackground source={image} style={styles.image}>
+    render() {
+        return (
+            <View>
             <Header
                     //utilisation du header a la place de headercustom de component/header.js car on ne peut pas ouvrir le menu sinon (a patcher)
                     leftComponent={
@@ -287,31 +284,30 @@ class Inscription extends React.Component
                     justifyContent: 'space-around',
                     }}
             />
-            <Divider style={{ backgroundColor: 'white' }} />
-            <SearchBarCustom />
+            <Divider style={{ backgroundColor: 'white' }} ></Divider>
 
             <SafeAreaView style={styles.container}>
-                
+
                 <ScrollView >
 
                     <Card
                         title='INSCRIPTION'
-                        image={require('../Images/BarberLife-logo-Grey.png')}
+                        image={require('../assets/images/BarberLife-logo-Grey.png')}
                         containerStyle={{ borderRadius: '25px', opacity: 0.98, height: '95%' }}
                     >
                         <View style={styles.space}>
 
                             <Text
                             style={styles.center}
-                            > 
-                                Vous possédez déjà un compte ? 
+                            >
+                                Vous possédez déjà un compte ?
                             </Text>
                             <Text
                                 accessibilityRole='link'
                                 style={[styles.center, styles.link]}
                                 onPress={() => this.goToConnexion()}
-                            > 
-                                Connectez-vous 
+                            >
+                                Connectez-vous
                             </Text>
 
                         </View>
@@ -322,7 +318,7 @@ class Inscription extends React.Component
                             //onPress={this.updateIndex}
                             //selectedIndex={selectedIndex}
                             buttons={this.checkbox}
-                            containerStyle={{height: 100}} 
+                            containerStyle={{height: 100}}
                         />
 
                         <Input
@@ -520,7 +516,7 @@ class Inscription extends React.Component
                         </View>
 
                         <View>
-                        
+
                         <Button
                             buttonStyle={{bottom: 0}}
                             icon=
@@ -545,8 +541,8 @@ class Inscription extends React.Component
             </SafeAreaView>
 
             <FooterCustom/>
-        </ImageBackground>
-        )
+                                </View>
+        );
     }
 }
 

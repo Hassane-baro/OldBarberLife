@@ -4,20 +4,18 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { ImageBackground, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Avatar, Button, Card, Divider, Header, Input } from 'react-native-elements';
 
-import FooterCustom from './footer';
-import SearchBarCustom from './searchbar';
+import FooterCustom from '../Component/footer';
 
 //https://docs.expo.io/versions/v37.0.0/sdk/imagepicker/
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 
-const image = { uri: "https://images.hdqwalls.com/download/apple-pro-display-xdr-5k-jh-1920x1080.jpg" };
 
 
 // Vue afficher pour la page de connexion
 export default class Profil extends React.Component
 {
-  
+
     //Constructeur
     constructor(props)
     {
@@ -33,7 +31,7 @@ export default class Profil extends React.Component
         this.inputTel = ""
         this.inputMdp = ""
         this.inputVerifMdp = ""
-        this.state = 
+        this.state =
         {
             //OFF et red si pas connecté, ON et green sinon
             title:"OFF",
@@ -47,12 +45,12 @@ export default class Profil extends React.Component
 
     useEffect()
     {
-        (async () => 
+        (async () =>
         {
-            if (Constants.platform.ios) 
+            if (Constants.platform.ios)
             {
                 const { status } = await ImagePicker.requestCameraRollPermissionsAsync();
-                if (status !== 'granted') 
+                if (status !== 'granted')
                 {
                     alert('Sorry, we need camera roll permissions to make this work!');
                 }
@@ -60,7 +58,7 @@ export default class Profil extends React.Component
         })();
     };
 
-    pickImage = async () => 
+    pickImage = async () =>
     {
         let result = await ImagePicker.launchImageLibraryAsync(
             {
@@ -71,7 +69,7 @@ export default class Profil extends React.Component
             }
         );
 
-        if (!result.cancelled) 
+        if (!result.cancelled)
         {
             this.setState({imagePicker: result.uri});
         }
@@ -94,51 +92,51 @@ export default class Profil extends React.Component
     }
 
     /**
-     * RECUPERATION CHAMPS FORMULAIRE 
+     * RECUPERATION CHAMPS FORMULAIRE
      */
 
     getInputUsername(text)
     {
-        this.inputUsername = text      
+        this.inputUsername = text
     }
     getInputNom(text)
     {
-        this.inputNom = text  
+        this.inputNom = text
     }
     getInputPrenom(text)
     {
-        this.inputPrenom = text  
+        this.inputPrenom = text
     }
     getInputDateNaiss(text)
     {
-        this.inputDateNaiss = text  
+        this.inputDateNaiss = text
     }
     getInputNumRue(text)
     {
-        this.inputNumRue = text  
+        this.inputNumRue = text
     }
     getInputNomRue(text)
     {
-        this.inputNomRue = text  
+        this.inputNomRue = text
     }
     getInputCP(text)
     {
-        this.inputCP = text  
+        this.inputCP = text
     }
     getInputVille(text)
     {
-        this.inputVille = text  
+        this.inputVille = text
     }
     getInputTel (text)
     {
         this.inputTel = text
-    }    
+    }
     getInputMdp(text)
     {
-        this.inputMdp = text  
+        this.inputMdp = text
     }
     getInputVerifMdp(text){
-        this.inputVerifMdp = text  
+        this.inputVerifMdp = text
     }
 
     /**
@@ -199,9 +197,9 @@ export default class Profil extends React.Component
             alert("Vous devez être connecté(e) pour accéder à cette page!")
             this.goToHome();
         }
-        
-        return(
-          <ImageBackground source={image} style={styles.image}>
+
+        return (
+            <View>
             <Header
                     //utilisation du header a la place de headercustom de component/header.js car on ne peut pas ouvrir le menu sinon (a patcher)
                     leftComponent={
@@ -231,20 +229,19 @@ export default class Profil extends React.Component
                     }}
             />
             <Divider style={{ backgroundColor: 'white' }} />
-            <SearchBarCustom />
 
             <SafeAreaView style={styles.container}>
-                
+
                 <ScrollView >
             <Card
                 title='PROFIL'
-                image={require('../Images/BarberLife-logo-Orange.png')}
+                image={require('../assets/images/BarberLife-logo-Orange.png')}
                 containerStyle={{ borderRadius: '25px', opacity: 0.98, height: '95%' }}
             >
 
                 <View style={styles.space, styles.horizontalCenter}>
 
-                    <Avatar 
+                    <Avatar
                         onPress={() => this.pickImage()}
                         overlayContainerStyle={{backgroundColor: 'blue'}}
                         rounded
@@ -436,7 +433,7 @@ export default class Profil extends React.Component
             </View>
 
             <View>
-            
+
             <Button
                 buttonStyle={{bottom: 0}}
                 icon=
@@ -453,15 +450,15 @@ export default class Profil extends React.Component
                 type='solid'
             />
             </View>
-    
+
           </Card>
           </ScrollView>
 
           </SafeAreaView>
           <FooterCustom/>
-      </ImageBackground>
+                    </View>
         )
-        
+
     }
 }
 
@@ -470,7 +467,7 @@ const styles = StyleSheet.create(
 {
     center:
     {
-        
+
     },
     horizontalCenter:
     {

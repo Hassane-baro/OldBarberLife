@@ -2,12 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="951f9b54-1c54-47b9-83d5-a86d4b204a86" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/App2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navigations/stack-navigation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navigations/tab-navigation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screens/page_boutique.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Component/page_accueil.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/page_accueil.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Component/page_coiffeur.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/page_coiffeur.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Component/page_commande.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/page_commande.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Component/page_connexion.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/page_connexion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Component/page_inscription.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/page_inscription.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Component/page_profil.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/page_profil.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Component/searchbar.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DB/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/DB/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BarberLife-logo-Brown.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/BarberLife-logo-Brown.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BarberLife-logo-Grey.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/BarberLife-logo-Grey.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BarberLife-logo-Orange.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/BarberLife-logo-Orange.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BarberLife-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/BarberLife-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/BarberLife.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/BarberLife.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/background.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/barber.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/barber.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/star.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/star.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -22,7 +52,29 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/screens" />
+      <recent name="$PROJECT_DIR$/assets" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="tab-navigation.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/navigations/tab-navigation.js" working-dir="$PROJECT_DIR$/navigations">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.tab-navigation.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -34,11 +86,50 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598784377162</updated>
-      <workItem from="1598784379504" duration="194000" />
+      <workItem from="1598784379504" duration="1535000" />
+      <workItem from="1598786085980" duration="4951000" />
+      <workItem from="1598810762571" duration="1237000" />
+      <workItem from="1599391723690" duration="338000" />
+      <workItem from="1599392329077" duration="1056000" />
+      <workItem from="1599393811269" duration="7191000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1707" y="-206" key="#Inspections" timestamp="1599395857702">
+      <screen x="-1920" y="-411" width="1920" height="1080" />
+    </state>
+    <state x="-1707" y="-206" key="#Inspections/0.0.1280.800/-1920.-411.1920.1080@-1920.-411.1920.1080" timestamp="1599395857702" />
+    <state x="-1272" y="-117" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1598785806142">
+      <screen x="-1920" y="-388" width="1920" height="1057" />
+    </state>
+    <state x="-1272" y="-117" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1280.777/-1920.-388.1920.1057@-1920.-388.1920.1057" timestamp="1598785806142" />
+    <state x="-1569" y="-117" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599394544013">
+      <screen x="-1920" y="-411" width="1920" height="1080" />
+    </state>
+    <state x="-1569" y="-117" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800/-1920.-411.1920.1080@-1920.-411.1920.1080" timestamp="1599394544013" />
+    <state width="1206" height="286" key="GridCell.Tab.0.bottom" timestamp="1599399770615">
+      <screen x="-1920" y="-411" width="1920" height="1080" />
+    </state>
+    <state width="1206" height="286" key="GridCell.Tab.0.bottom/0.0.1280.800/-1920.-411.1920.1080@-1920.-411.1920.1080" timestamp="1599399770615" />
+    <state width="1206" height="286" key="GridCell.Tab.0.center" timestamp="1599399770612">
+      <screen x="-1920" y="-411" width="1920" height="1080" />
+    </state>
+    <state width="1206" height="286" key="GridCell.Tab.0.center/0.0.1280.800/-1920.-411.1920.1080@-1920.-411.1920.1080" timestamp="1599399770612" />
+    <state width="1206" height="286" key="GridCell.Tab.0.left" timestamp="1599399770611">
+      <screen x="-1920" y="-411" width="1920" height="1080" />
+    </state>
+    <state width="1206" height="286" key="GridCell.Tab.0.left/0.0.1280.800/-1920.-411.1920.1080@-1920.-411.1920.1080" timestamp="1599399770611" />
+    <state width="1206" height="286" key="GridCell.Tab.0.right" timestamp="1599399770614">
+      <screen x="-1920" y="-411" width="1920" height="1080" />
+    </state>
+    <state width="1206" height="286" key="GridCell.Tab.0.right/0.0.1280.800/-1920.-411.1920.1080@-1920.-411.1920.1080" timestamp="1599399770614" />
+    <state x="-1636" y="-130" width="659" height="518" key="find.popup" timestamp="1599395211586">
+      <screen x="-1920" y="-411" width="1920" height="1080" />
+    </state>
+    <state x="-1636" y="-130" width="659" height="518" key="find.popup/0.0.1280.800/-1920.-411.1920.1080@-1920.-411.1920.1080" timestamp="1599395211586" />
   </component>
 </project>

@@ -5,12 +5,10 @@ import { ImageBackground, StyleSheet, View } from 'react-native';
 import { Avatar, Button, Card, Divider, Header, Rating, Text } from 'react-native-elements';
 
 //Import classes personnalisées
-import FooterCustom from './footer';
-import SearchBarCustom from './searchbar';
+import FooterCustom from '../Component/footer';
 
 //constantes utiles
-const image = { uri: "https://images.hdqwalls.com/download/apple-pro-display-xdr-5k-jh-1920x1080.jpg" };
-const WATER_IMAGE = require('../Images/star.png');
+const WATER_IMAGE = require('../assets/images/star.png');
 
 // Vue afficher pour la page de connexion
 export default class Coiffeur extends React.Component
@@ -19,11 +17,11 @@ export default class Coiffeur extends React.Component
     constructor(props)
     {
         super(props)
-        this.state = 
+        this.state =
         {
             data:[],
             IdUser:""
-        }      
+        }
     }
 
     //foncitons Navigator
@@ -41,7 +39,7 @@ export default class Coiffeur extends React.Component
     {
       if(this.state.IdUser!="")
       {
-        this.props.navigation.navigate("Profil", 
+        this.props.navigation.navigate("Profil",
         {
           IdUser: this.state.IdUser,
           data: this.state.data
@@ -81,7 +79,7 @@ export default class Coiffeur extends React.Component
             alert("Problème lors de la commande");
           break;
         }
-       
+
     }
 
     render()
@@ -96,18 +94,16 @@ export default class Coiffeur extends React.Component
             avatarColor: "green"
           })
         }
-        return(
-          <ImageBackground source={image} style={styles.image}>
+        return (
+            <View>
           <Header
               //utilisation du header a la place de headercustom de component/header.js car on ne peut pas ouvrir le menu sinon (a patcher)
-              leftComponent={
-              <Icon
+              leftComponent={<Icon
                   name='bars'
                   type='font-awesome'
                   color='#f50'
                   size= {26}
-                  onPress= {() => this.openNavigator()}
-              />
+                  onPress= {() => this.openNavigator()} />
               }
               centerComponent={{ text: 'BARBERLIFE', style: { color: '#fff', fontWeight: 'bold' } }}
               //utilisation du avatar a la place de avatarcustom de component/avatar.js car on ne configurer le onpress sinon (a patcher)
@@ -126,17 +122,16 @@ export default class Coiffeur extends React.Component
               }}
           />
                 <Divider style={{ backgroundColor: 'white' }} />
-                <SearchBarCustom />
 
                 <View style={styles.container}>
 
                 <Card
                     title={this.props.route.params.user.nom_user + " " + this.props.route.params.user.prenom_user}
-                    image={require('../Images/BarberLife-logo-Brown.png')}
+                    image={require('../assets/images/BarberLife-logo-Brown.png')}
                     containerStyle={{ borderRadius: '25px', opacity: 0.98, height: '95%' }}
                 >
 
-                  <Text>                    
+                  <Text>
                     Mail: {this.props.route.params.user.mail_user}
                   </Text>
 
@@ -177,7 +172,7 @@ export default class Coiffeur extends React.Component
                 </View>
 
                 <FooterCustom/>
-                </ImageBackground>
+                  </View>
         )
     }
 }
